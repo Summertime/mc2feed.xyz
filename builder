@@ -65,9 +65,9 @@ map("<item>
 </item>") |
 "<rss version=\"2.0\">
 	<channel>
-		<title>Minecraft Releases & Snapshots</title>
+		<title>Minecraft Releases &amp; Snapshots</title>
 		<link>https://mc2feed.xyz/</link>
-		<description>Minecraft Releases & Snapshots</description>
+		<description>Minecraft Releases &amp; Snapshots</description>
 		\(.|join("\n"))
 	</channel>
 </rss>
