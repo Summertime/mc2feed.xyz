@@ -35,3 +35,41 @@ curl -sS -- "https://launchermeta.mojang.com/mc/game/version_manifest_v2.json" >
 		content_text:"\(.id)"
 	})
 }'
+
+
+< "$VM" > output/versions/releases.rss jq -r '
+[ .versions[] | select(.type=="release") ] |
+map("<item>
+	<title>\(.id)</title>
+	<guid>mcversion:\(.id)</guid>
+	<link>https://minecraft.fandom.com/wiki/Java_Edition_\(.id)</link>
+	<pubDate>\(.releaseTime|sub("\\+00:00";"Z")|fromdate|strftime("%a, %d %b %Y %T %z"))</pubDate>
+</item>") |
+"<rss version=\"2.0\">
+	<channel>
+		<title>Minecraft Releases</title>
+		<link>https://mc2feed.xyz/</link>
+		<description>Minecraft Releases</description>
+		\(.|join("\n"))
+	</channel>
+</rss>
+"'
+
+< "$VM" > output/versions/snapshots.rss jq -r '
+[ .versions[] | select(.type=="release" or .type=="snapshot" ) ] | 
+map("<item>
+	<title>\(.id)</title>
+	<guid>mcversion:\(.id)</guid>
+	<link>https://minecraft.fandom.com/wiki/Java_Edition_\(.id)</link>
+	<pubDate>\(.releaseTime|sub("\\+00:00";"Z")|fromdate|strftime("%a, %d %b %Y %T %z"))</pubDate>
+</item>") |
+"<rss version=\"2.0\">
+	<channel>
+		<title>Minecraft Releases & Snapshots</title>
+		<link>https://mc2feed.xyz/</link>
+		<description>Minecraft Releases & Snapshots</description>
+		\(.|join("\n"))
+	</channel>
+</rss>
+"'
+

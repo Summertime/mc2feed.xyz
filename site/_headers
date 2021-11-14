@@ -1,0 +1,5 @@
+/versions/releases.json
+  Content-Type: application/feed+json
+
+/versions/snapshots.json
+  Content-Type: application/feed+json
