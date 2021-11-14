@@ -14,12 +14,12 @@ curl -sS -- "https://launchermeta.mojang.com/mc/game/version_manifest_v2.json" >
 	"title": "Minecraft Releases",
 	"home_page_url": "https://mc2feed.xyz",
 	"feed_url": "https://mc2feed.xyz/versions/releases.json",
-	"items": {
+	"items": map({
 		id: .id,
 		url: "https://minecraft.fandom.com/wiki/Java_Edition_\(.id)",
 		date_published: .releaseTime,
 		content_text:"\(.id)"
-	}
+	})
 }'
 
 < "$VM" > output/versions/snapshots.json jq -c '
@@ -28,10 +28,10 @@ curl -sS -- "https://launchermeta.mojang.com/mc/game/version_manifest_v2.json" >
 	"title": "Minecraft Releases & Snapshots",
 	"home_page_url": "https://mc2feed.xyz",
 	"feed_url": "https://mc2feed.xyz/versions/snapshots.json",
-	"items": {
+	"items": map({
 		id: .id,
 		url: "https://minecraft.fandom.com/wiki/Java_Edition_\(.id)",
 		date_published: .releaseTime,
 		content_text:"\(.id)"
-	}
+	})
 }'
