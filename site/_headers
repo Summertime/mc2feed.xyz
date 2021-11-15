@@ -1,5 +1,7 @@
-*
-  Content-Security-Policy: style-src 'self'; script-src static.cloudflareinsights.com; connect-src cloudflareinsights.com; object-src 'none'; default-src 'none'
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Content-Security-Policy: style-src 'self'; script-src static.cloudflareinsights.com; connect-src cloudflareinsights.com; object-src 'none'; default-src 'none';
 
 /versions/releases.json
   Content-Type: application/feed+json
