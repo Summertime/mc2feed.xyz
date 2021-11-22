@@ -1,9 +1,34 @@
 <!doctype html><html lang=en><title>MC2Feed</title>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=description content="Minecraft's versions as various feed formats for your subscribing pleasure">
-<link rel=stylesheet href=/site.css>
 <link rel=alternate title="Minecraft Releases" type=application/feed+json href=/versions/releases.json>
 <link rel=alternate title="Minecraft Releases & Snapshots" type=application/feed+json href=/versions/snapshots.json>
+<style>
+:root {
+	max-width: 40ch;
+	margin: auto;
+	font-family: sans-serif;
+	text-align: justify;
+}
+h1,h2,h3,h4,h5,h6 {
+	text-align: center;
+}
+.flex {
+	display: flex;
+	justify-content: center;
+	gap: 1ch;	
+}
+.flex > * {
+	display: block;
+	background: rgba(0,0,0,0.1);
+	padding: 1ch;
+	flex: 1 0;
+	text-align: center;
+}
+.flex > *:hover {
+	background: rgba(0,0,0,0.2);
+}
+</style>
 <h1>MC2Feed</h1>
 <p>
 Minecraft's <a href=https://launchermeta.mojang.com/mc/game/version_manifest_v2.json><code>version_manifest.json</code></a>
